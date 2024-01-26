@@ -1,0 +1,89 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
+
+public class GameManager : MonoBehaviour
+{
+    public static GameManager Instance { get; private set; }
+
+    public List<int> playerVicotries = new List<int>();
+
+    public float gameTimer;
+
+    public bool gamePaused;
+
+    public int gamesUnitlEnd;
+    public int amountOfMinigames;
+
+    private int selectedMinigame;
+    private int previousMinigameSelected = -1;
+
+    public void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void Start()
+    {
+        //SelectMinigame();
+        //play opening curtain animation 
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Space)) 
+        {
+            Debug.Log(previousMinigameSelected);
+            SelectMinigame();
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            SceneManager.LoadScene(1);
+        }
+        if (Input.GetKeyUp(KeyCode.RightShift))
+        {
+            SceneManager.LoadScene(2);
+        }
+    }
+
+    public void SelectMinigame()
+    {
+        //play closing curtain animation
+        switch (SelectRandomMinigame()) 
+        {
+            case 0:
+                //Debug.Log(0);
+                break; 
+            case 1:
+                //Debug.Log(1);
+                break; 
+            case 2:
+                //Debug.Log(2);
+                break;
+        }
+    }
+
+    int SelectRandomMinigame()
+    {
+        do
+        {
+            selectedMinigame = Random.Range(0, amountOfMinigames);
+
+        } while (selectedMinigame == previousMinigameSelected);
+        previousMinigameSelected = selectedMinigame;
+        return selectedMinigame;
+    }
+
+
+}
