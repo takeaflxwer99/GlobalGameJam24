@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
     public int gamesUnitlEnd;
     public int amountOfMinigames;
 
+    public UnityEvent minigameStarted;
+    public UnityEvent activateMinigameEvent;
 
     private int selectedMinigame;
     private int previousMinigameSelected = -1;

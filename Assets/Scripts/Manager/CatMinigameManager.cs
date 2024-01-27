@@ -10,6 +10,7 @@ public class CatMinigameManager : MonoBehaviour
     private int amountOfCatsInGame;
 
     [SerializeField] GameObject[] catPrefabs;
+    GameObject catToBeSpawned;
 
     private void Update()
     {
@@ -30,34 +31,44 @@ public class CatMinigameManager : MonoBehaviour
         StopCoroutine(SpawnCat());
     }
 
-    void SelectCatToBeSpawned()
+    GameObject SelectCatToBeSpawned()
     {
-        Vector2 spawnPointBoundMax = GetComponent<Renderer>().bounds.max;
-        Vector2 spawnPointBoundMin = GetComponent<Renderer>().bounds.min;
-        Vector2 randomSpawnPoint = new Vector2((Random.Range(spawnPointBoundMax.x, spawnPointBoundMin.x)), (Random.Range(spawnPointBoundMax.y, spawnPointBoundMin.y)));
-
         int catSelected = Random.Range(0, 12);
         if (catSelected <= 8)
         {
             Debug.Log("normal Cat");
+            catToBeSpawned = catPrefabs[0];
         }
         else if(catSelected >= 9 && catSelected <= 10) 
         {
             Debug.Log("Toxic Cat");
+            catToBeSpawned = catPrefabs[1];
         }
         else if (catSelected == 11)
         {
             Debug.Log("Golden Cat");
-        }
-        //Instantiate()
-        StartCoroutine(SpawnCat());
+            catToBeSpawned = catPrefabs[2];
 
+        }
+        return catToBeSpawned;
+
+    }
+
+    void CatSpawnPosition()
+    {
+        float spawnPointX = GetComponent<CapsuleCollider2D>().size.x;
+        float spawnPointY = GetComponent<CapsuleCollider2D>().size.y;
+        Vector2 randomSpawnPoint = new Vector2((Random.Range(0, spawnPointX * 2)), (Random.Range(0, spawnPointY * 2)));
+
+        Instantiate(SelectCatToBeSpawned(), randomSpawnPoint.normalized, transform.rotation);
+        StartCoroutine(SpawnCat());
     }
 
 
     IEnumerator StartMinigame()
     {
         yield return new WaitForSeconds(1.0f);
+        //GameManager.Instance.minigameStarted.Invoke();
         StartCoroutine(SpawnCat());
     }
 
@@ -65,7 +76,7 @@ public class CatMinigameManager : MonoBehaviour
     {
         StopCoroutine(StartMinigame());
         yield return new WaitForSeconds(1.0f); ;
-        SelectCatToBeSpawned();
+        CatSpawnPosition();
     }
 
 }
