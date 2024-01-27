@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0158a54943811a6439e43e7ab40f59f6
+guid: ed63a7ae4605c9f40846390230f3d52b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,39 +106,26 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Caracol-player-1-frame-2_0
+      name: boton creditos_0
       rect:
         serializedVersion: 2
-        x: 677
-        y: 359
-        width: 461
-        height: 476
+        x: 686
+        y: 274
+        width: 552
+        height: 231
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 89, y: 56, z: 212, w: 37}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7cb7b8a224beae48a80af62cd175791
-      internalID: -1260235782
+      spriteID: aa3d96d7380a9ee4584224f9f2bc302a
+      internalID: -250661209
       vertices: []
       indices: 
       edges: []
@@ -154,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Caracol-player-1-frame-2_0: -1260235782
+      boton creditos_0: -250661209
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

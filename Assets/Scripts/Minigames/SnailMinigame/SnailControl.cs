@@ -9,40 +9,93 @@ public enum OtroPlayerType
 
 public class SnailControl : MonoBehaviour
 {
+    Animator animator;
     public OtroPlayerType playerType;
-    public float velocidadConstante = 1f;
     public float impulso = 5f;
+    private bool isImpulseActivated = false;
+    private bool previousAnimationState;
+    private int keyPressCount = 0;
+    private float lastKeyPressTime;
 
     private Rigidbody2D rb;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-      
-        float inputCaracol = 0f;
-
         switch (playerType)
         {
             case OtroPlayerType.Caracol1:
-                inputCaracol = Input.GetAxis("Caracol1");
+                HandleInput(KeyCode.D, true);
                 break;
-            case OtroPlayerType.Caracol2:
-                inputCaracol = Input.GetAxis("Caracol2");
-                break;
-        }
 
-        if (inputCaracol > 0)
-        {
-            rb.velocity = new Vector2(impulso, rb.velocity.y);
-        }
-        else
-        {
-            rb.velocity = new Vector2(velocidadConstante, rb.velocity.y);
+            case OtroPlayerType.Caracol2:
+                HandleInput(KeyCode.RightArrow, true);
+                break;
         }
     }
 
+    void HandleInput(KeyCode key, bool activateAnimation)
+    {
+        if (Input.GetKeyDown(key) && !isImpulseActivated)
+        {
+            float currentTime = Time.time;
+            if (currentTime - lastKeyPressTime < 0.7f)
+            {
+                keyPressCount++;
+                if (keyPressCount >= 5)
+                {
+                    animator.SetBool("Cansado", true);
+
+                    if (keyPressCount == 12)
+                    {
+                        animator.SetTrigger("Explotar");
+                    }
+                }
+            }
+            else
+            {
+                StartCoroutine(NoCansado());
+            }
+
+            lastKeyPressTime = currentTime;
+
+            SavePreviousAnimationState();
+            StartCoroutine(ApplyImpulse());
+            SetAnimation(activateAnimation);
+        }
+    }
+
+    void SavePreviousAnimationState()
+    {
+        previousAnimationState = animator.GetBool("Impulse");
+    }
+
+    void SetAnimation(bool activate)
+    {
+        animator.SetBool("Impulse", activate);
+    }
+    IEnumerator NoCansado()
+    {
+        yield return new WaitForSeconds(2f); 
+        animator.SetBool("Cansado", false);
+    }
+    IEnumerator ApplyImpulse()
+    {
+        isImpulseActivated = true;
+        rb.velocity = new Vector2(impulso, rb.velocity.y);
+        yield return new WaitForSeconds(0.2f);
+        rb.velocity = Vector2.zero;
+        isImpulseActivated = false;
+        SetAnimation(previousAnimationState);
+    }
+
+    public void OnExplosionAnimationEnd()
+    {
+        Destroy(gameObject);
+    }
 }
