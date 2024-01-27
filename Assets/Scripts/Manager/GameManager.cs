@@ -10,12 +10,12 @@ public class GameManager : MonoBehaviour
 
     public List<int> playerVicotries = new List<int>();
 
-    public float gameTimer;
-
     public bool gamePaused;
+    public bool minigameFinished;
 
     public int gamesUnitlEnd;
     public int amountOfMinigames;
+
 
     private int selectedMinigame;
     private int previousMinigameSelected = -1;
@@ -64,12 +64,15 @@ public class GameManager : MonoBehaviour
         {
             case 0:
                 //Debug.Log(0);
+                //SceneManager.LoadScene("CatMinigame");
                 break; 
             case 1:
                 //Debug.Log(1);
+                //SceneManager.LoadScene("SnailRaice");
                 break; 
             case 2:
                 //Debug.Log(2);
+                //SceneManager.LoadScene("Laberinth");
                 break;
         }
     }
