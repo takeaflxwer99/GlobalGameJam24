@@ -56,11 +56,11 @@ public class CatMinigameManager : MonoBehaviour
 
     void CatSpawnPosition()
     {
-        float spawnPointX = GetComponent<CapsuleCollider2D>().size.x;
-        float spawnPointY = GetComponent<CapsuleCollider2D>().size.y;
-        Vector2 randomSpawnPoint = new Vector2((Random.Range(0, spawnPointX * 2)), (Random.Range(0, spawnPointY * 2)));
+        Vector2 spawnPointMax = GetComponent<SpriteRenderer>().bounds.max;
+        Vector2 spawnPointMin = GetComponent<SpriteRenderer>().bounds.min;
+        Vector2 randomSpawnPoint = new Vector2((Random.Range(spawnPointMax.x, spawnPointMin.x)/2), (Random.Range(spawnPointMax.y, spawnPointMin.y)/2));
 
-        Instantiate(SelectCatToBeSpawned(), randomSpawnPoint.normalized, transform.rotation);
+        Instantiate(SelectCatToBeSpawned(), transform.position, transform.rotation);
         StartCoroutine(SpawnCat());
     }
 
@@ -78,5 +78,7 @@ public class CatMinigameManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f); ;
         CatSpawnPosition();
     }
+
+
 
 }

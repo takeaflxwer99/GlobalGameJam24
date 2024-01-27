@@ -98,6 +98,7 @@ public class CatMovement : MonoBehaviour
 
     void ScareCat()
     {
-
+        //Play animation 
+        Destroy(this.gameObject);
     }
 }
