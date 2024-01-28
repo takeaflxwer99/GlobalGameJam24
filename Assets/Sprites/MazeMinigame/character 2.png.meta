@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b0a399ccb823d3429db206341799e5c
+guid: 21569dceeb000514895e40fa2dce85a5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,6 +81,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -110,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: banners_0
+      name: character 2_0
       rect:
         serializedVersion: 2
-        x: 94
-        y: 0
-        width: 128
-        height: 1080
+        x: 20
+        y: 22
+        width: 303
+        height: 590
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,29 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d81afbd86e37704186269b5222e32f3
-      internalID: -2025377049
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: banners_1
-      rect:
-        serializedVersion: 2
-        x: 1700
-        y: 0
-        width: 128
-        height: 1080
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0459df95bf4e1234687cc5f93f06cb8f
-      internalID: -691300010
+      spriteID: cf589b00c3bf76b4197c0812cefc6c57
+      internalID: -1228481727
       vertices: []
       indices: 
       edges: []
@@ -162,8 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      banners_0: -2025377049
-      banners_1: -691300010
+      character 2_0: -1228481727
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

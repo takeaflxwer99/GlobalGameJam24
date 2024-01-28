@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e6aa9c6ef2b6b694d8d781e06a72b036
+guid: 0ff674c96740f394d9223b292bbdc4be
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,6 +81,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -110,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: base_0
+      name: character 2 walk_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 960.5
-        height: 1080
+        x: 106
+        y: 28
+        width: 235
+        height: 590
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,29 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e061cb6fc4926764c98afecbeda60fdc
-      internalID: 868764296
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: base_1
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 0
-        width: 960.5
-        height: 1080
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 894b10a631f25484b8dd7b335caf92b2
-      internalID: -1522788207
+      spriteID: 7241a468fc9b4b445823817ec49921f0
+      internalID: 887109345
       vertices: []
       indices: 
       edges: []
@@ -162,8 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      base_0: 868764296
-      base_1: -1522788207
+      character 2 walk_0: 887109345
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
