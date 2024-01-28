@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenu.unity
+    guid: c5102160b3b85614ca804c766b3464c6
   - enabled: 1
-    path: Assets/Scenes/GameManagerTest.unity
-    guid: 9d4c9acc239444243b7c28303d65f489
+    path: Assets/Scenes/MazeMinigame.unity
+    guid: 9813c8fd88ab1d74bb06d23ad8447514
   - enabled: 1
-    path: Assets/Scenes/GameManagerTester2.unity
-    guid: 6ca3285151ea26f46a6dc2aecdc44ae9
+    path: Assets/Scenes/SnailMinigame.unity
+    guid: 57489964200773346aa5eae2ab2eb6bf
+  - enabled: 1
+    path: Assets/Scenes/CatMinigame.unity
+    guid: ce0f810b35f653e418c510c2256eb594
   m_configObjects: {}

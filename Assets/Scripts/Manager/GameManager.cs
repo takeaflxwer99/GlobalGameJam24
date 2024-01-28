@@ -39,24 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //SelectMinigame();
         //play opening curtain animation 
-    }
-
-    private void Update()
-    {
-        if(Input.GetKeyUp(KeyCode.Space)) 
-        {
-            SelectMinigame();
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            SceneManager.LoadScene(1);
-        }
-        if (Input.GetKeyUp(KeyCode.RightShift))
-        {
-            SceneManager.LoadScene(2);
-        }
     }
 
     public void SelectMinigame()
@@ -66,15 +49,15 @@ public class GameManager : MonoBehaviour
         {
             case 0:
                 //Debug.Log(0);
-                //SceneManager.LoadScene("CatMinigame");
+                SceneManager.LoadScene("MazeMinigame");
                 break; 
             case 1:
                 //Debug.Log(1);
-                //SceneManager.LoadScene("SnailRaice");
+                SceneManager.LoadScene("SnailMinigame");
                 break; 
             case 2:
                 //Debug.Log(2);
-                //SceneManager.LoadScene("Laberinth");
+                SceneManager.LoadScene("CatMinigame");
                 break;
         }
     }
@@ -88,6 +71,11 @@ public class GameManager : MonoBehaviour
         } while (selectedMinigame == previousMinigameSelected);
         previousMinigameSelected = selectedMinigame;
         return selectedMinigame;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
 

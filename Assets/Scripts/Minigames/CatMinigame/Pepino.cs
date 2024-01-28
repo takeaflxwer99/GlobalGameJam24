@@ -76,7 +76,7 @@ public class Pepino : MonoBehaviour
 
     IEnumerator DestroySelf()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(this.gameObject);
     }
 

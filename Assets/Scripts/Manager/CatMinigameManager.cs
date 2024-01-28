@@ -22,7 +22,6 @@ public class CatMinigameManager : MonoBehaviour
 
     public void GameStarted()
     {
-
         StartCoroutine(StartMinigame());
     }
 
