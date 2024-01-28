@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,6 +12,10 @@ public class CatMovement : MonoBehaviour
     enum CatType { normal, golden, toxic };
     [SerializeField] CatType type;
 
+    private enum State { alive, dead};
+    State state;
+
+    public Sprite scaredSprite;
     private Vector2 movimiento;
     private float speed;
     private bool catCanMove = false;
@@ -18,7 +23,6 @@ public class CatMovement : MonoBehaviour
     private void Start()
     {
         CatMove();
-        GameManager.Instance.activateMinigameEvent.AddListener(ScareCat);
 
         switch (type)
         {
@@ -46,43 +50,45 @@ public class CatMovement : MonoBehaviour
 
     void CatMove()
     {
-        Debug.Log("here");
         catCanMove = true;
         if (!GameManager.Instance.gamePaused)
         {
-            switch(Random.Range(0, 9))
+            if(state == State.alive)
             {
-                case 0:
-                    movimiento = new Vector2(1, 0);
-                    break; 
-                case 1:
-                    movimiento = new Vector2(-1, 0);
-                    break; 
-                case 2:
-                    movimiento = new Vector2(0, 1);
-                    break;
-                case 3:
-                    movimiento = new Vector2(0, -1);
-                    break;
-                case 4:
-                    movimiento = new Vector2(1, -1);
-                    break;
-                case 5:
-                    movimiento = new Vector2(-1, 1);
-                    break;
-                case 6:
-                    movimiento = new Vector2(-1, -1);
-                    break;
-                case 7:
-                    movimiento = new Vector2(1, 1);
-                    break;
-                case 8:
-                    movimiento = new Vector2(0, 0);
-                    break;
-                default:
-                    break;
+                switch(Random.Range(0, 9))
+                {
+                    case 0:
+                        movimiento = new Vector2(1, 0);
+                        break; 
+                    case 1:
+                        movimiento = new Vector2(-1, 0);
+                        break; 
+                    case 2:
+                        movimiento = new Vector2(0, 1);
+                        break;
+                    case 3:
+                        movimiento = new Vector2(0, -1);
+                        break;
+                    case 4:
+                        movimiento = new Vector2(1, -1);
+                        break;
+                    case 5:
+                        movimiento = new Vector2(-1, 1);
+                        break;
+                    case 6:
+                        movimiento = new Vector2(-1, -1);
+                        break;
+                    case 7:
+                        movimiento = new Vector2(1, 1);
+                        break;
+                    case 8:
+                        movimiento = new Vector2(0, 0);
+                        break;
+                    default:
+                        break;
+                }
+                StartCoroutine(NextDirection());
             }
-            StartCoroutine(NextDirection());
         }
         else
         {
@@ -92,13 +98,15 @@ public class CatMovement : MonoBehaviour
 
     IEnumerator NextDirection()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
         CatMove();
     }
 
-    void ScareCat()
+    private void OnDestroy()
     {
+        state = State.dead;
+        GetComponent<SpriteRenderer>().sprite = scaredSprite;
         //Play animation 
-        Destroy(this.gameObject);
     }
+
 }

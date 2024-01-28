@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public enum PlayerType
 {
@@ -10,13 +11,14 @@ public enum PlayerType
 }
 public class PlayersMovements : MonoBehaviour
 {
-    public Text catGamePoints;
+    public TextMeshProUGUI catGamePoints;
 
     public float velocidad = 5f;
     public int catsInLight = 0;
     public PlayerType playerType;
 
-    private bool catInsideTrigger = false;
+    public GameObject pepinoPrefab;
+
 
     private void Start()
     {
@@ -54,30 +56,13 @@ public class PlayersMovements : MonoBehaviour
 
         Vector3 movimiento = new Vector3(movimientoHorizontal, movimientoVertical, 0f);
         transform.position += movimiento * velocidad * Time.deltaTime;
-    }
 
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if(other.tag == "cat")
-        {
-            
-        }
-        
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.tag == "cat")
-        {
-            catsInLight = catsInLight - 1;
-        }
-        Debug.Log(catsInLight);
+        catGamePoints.text = catsInLight.ToString(); 
     }
 
     void ActivateEvent() 
     {
-        GameManager.Instance.activateMinigameEvent.Invoke();
-        //ShootAnimation 
-        //Instantiate(pepinoPrefab, transform.position, Quaternion.identity);
+        //cannon audio
+        Instantiate(pepinoPrefab, transform.position, Quaternion.identity);
     }
 }

@@ -47,7 +47,6 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyUp(KeyCode.Space)) 
         {
-            Debug.Log(previousMinigameSelected);
             SelectMinigame();
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
