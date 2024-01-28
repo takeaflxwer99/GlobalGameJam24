@@ -1,3 +1,4 @@
+// GameManager.cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,9 @@ public class GameManager : MonoBehaviour
     private int selectedMinigame;
     private int previousMinigameSelected = -1;
 
+    // Cambia esto a una lista
+    public List<string> minigameSceneNames = new List<string> { "MazeMinigame", "SnailMinigame", "CatMinigame" };
+
     public void Awake()
     {
         if (Instance != null && Instance != this)
@@ -48,21 +52,13 @@ public class GameManager : MonoBehaviour
 
     public void SelectMinigame()
     {
-            switch (1/*SelectRandomMinigame()*/)
-        {
-            case 0:
-                //Debug.Log(0);
-                SceneManager.LoadScene("MazeMinigame");
-                break;
-            case 1:
-                //Debug.Log(1);
-                SceneManager.LoadScene("SnailMinigame");
-                break;
-            case 2:
-                //Debug.Log(2);
-                SceneManager.LoadScene("CatMinigame");
-                break;
-        }
+        selectedMinigame = SelectRandomMinigame();
+    }
+
+    public void ChangeScene()
+    {
+        SelectMinigame();
+        SceneManager.LoadScene(minigameSceneNames[selectedMinigame]);
     }
 
     int SelectRandomMinigame()
@@ -130,12 +126,12 @@ public class GameManager : MonoBehaviour
     public void CloseCurtainAnimations()
     {
         GetComponent<Animator>().SetTrigger("CloseCurtain");
+        StartCoroutine(ChangeSceneAfterDelay());
     }
 
-    public IEnumerator ChangeScene()
+    IEnumerator ChangeSceneAfterDelay()
     {
         yield return new WaitForSeconds(2.0f);
-        SelectMinigame();
+        ChangeScene();
     }
-
 }

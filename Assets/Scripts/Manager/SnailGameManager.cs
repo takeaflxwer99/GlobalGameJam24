@@ -17,7 +17,6 @@ public class SnailGameManager : MonoBehaviour
         victoryScreen.SetActive(false);
         instructions.SetActive(false);
         GameManager.Instance.OpenCurtainAnimations();
-
     }
 
     private void Update()
@@ -30,20 +29,7 @@ public class SnailGameManager : MonoBehaviour
         {
             DisableInstructionsActivateCourtains();
         }
-
     }
-
-    //public void PauseGame()
-    //{
-    //    if(GameManager.Instance.PauseGame()) 
-    //    { 
-    //        pauseMenu.SetActive(false);
-    //    }
-    //    else
-    //    {
-    //        pauseMenu.SetActive(true);
-    //    }
-    //}
 
     public void QuitGame()
     {
@@ -67,8 +53,8 @@ public class SnailGameManager : MonoBehaviour
             GameManager.Instance.gamePaused = true;
             GameManager.Instance.playerVicotries[1] = GameManager.Instance.playerVicotries[1] + 1;
             winnerPlayerText.text = "PLAYER 2 WON THE RACE!!!";
-
         }
         GameManager.Instance.CloseCurtainAnimations();
+        GameManager.Instance.ChangeScene();
     }
 }
