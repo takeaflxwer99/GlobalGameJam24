@@ -1663,9 +1663,9 @@ GameObject:
   m_Component:
   - component: {fileID: 640033513}
   - component: {fileID: 640033512}
-  - component: {fileID: 640033511}
   - component: {fileID: 640033514}
   - component: {fileID: 640033515}
+  - component: {fileID: 640033516}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -1673,22 +1673,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &640033511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640033510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b87ffc62cfc18674aaa0b0d4b8b6b8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  catGamePoints: {fileID: 0}
-  velocidad: 2
-  catsInLight: 0
-  playerType: 1
 --- !u!212 &640033512
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1829,6 +1813,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &640033516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640033510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 809518af6529e544db88738811876611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 2
+  playerType: 1
 --- !u!1 &641697197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2861,9 +2859,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2000938282}
   - component: {fileID: 2000938281}
-  - component: {fileID: 2000938283}
   - component: {fileID: 2000938285}
   - component: {fileID: 2000938284}
+  - component: {fileID: 2000938286}
+  - component: {fileID: 2000938287}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -2939,22 +2938,6 @@ Transform:
   - {fileID: 623419218}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2000938283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000938280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b87ffc62cfc18674aaa0b0d4b8b6b8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  catGamePoints: {fileID: 0}
-  velocidad: 2
-  catsInLight: 0
-  playerType: 0
 --- !u!61 &2000938284
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3027,6 +3010,41 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &2000938286
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000938280}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 846d429e93d946047b8ed3bb85343476, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2000938287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000938280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 809518af6529e544db88738811876611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 2
+  playerType: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
