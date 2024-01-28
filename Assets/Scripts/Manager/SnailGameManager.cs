@@ -29,6 +29,7 @@ public class SnailGameManager : MonoBehaviour
         {
             DisableInstructionsActivateCourtains();
         }
+
     }
 
     public void PauseGame()

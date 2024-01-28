@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public List<int> playerVicotries = new List<int>();
 
+    //GameManager.Instance.gamePaused
     public bool gamePaused = false;
     public bool minigameFinished;
 
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
 
     }
 
