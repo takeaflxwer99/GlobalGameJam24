@@ -27,15 +27,18 @@ public class SnailControl : MonoBehaviour
 
     void Update()
     {
-        switch (playerType)
-        {
-            case OtroPlayerType.Caracol1:
-                HandleInput(KeyCode.D, true);
-                break;
+        if (!GameManager.Instance.gamePaused)
+        { 
+            switch (playerType)
+            {
+                case OtroPlayerType.Caracol1:
+                    HandleInput(KeyCode.D, true);
+                    break;
 
-            case OtroPlayerType.Caracol2:
-                HandleInput(KeyCode.RightArrow, true);
-                break;
+                case OtroPlayerType.Caracol2:
+                    HandleInput(KeyCode.RightArrow, true);
+                    break;
+            }
         }
     }
 

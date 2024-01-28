@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CloseCurtain
+  m_Name: IdleCurtain
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -20,19 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - serializedVersion: 2
     curve:
-    - time: 0.016666668
-      value: {fileID: 21300000, guid: d598d71983385e44bbc52f04a1188581, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: c05af233a3f8a3d468ffe35053c5938a, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: 56f34aba4533e96499a2f895d907ecfa, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: 3e14ebe8785c877458f18251b45acd86, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: 1dc19ad441748d3429c7e87480950bfd, type: 3}
-    - time: 0.41666666
-      value: {fileID: 21300000, guid: 3235d27b52e53674f8dc6c0189d8a96e, type: 3}
-    - time: 0.5
+    - time: 0
       value: {fileID: 21300000, guid: daa5a60ab59d8a046bca7098a06523c5, type: 3}
     attribute: m_Sprite
     path: 
@@ -56,19 +44,13 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: d598d71983385e44bbc52f04a1188581, type: 3}
-    - {fileID: 21300000, guid: c05af233a3f8a3d468ffe35053c5938a, type: 3}
-    - {fileID: 21300000, guid: 56f34aba4533e96499a2f895d907ecfa, type: 3}
-    - {fileID: 21300000, guid: 3e14ebe8785c877458f18251b45acd86, type: 3}
-    - {fileID: 21300000, guid: 1dc19ad441748d3429c7e87480950bfd, type: 3}
-    - {fileID: 21300000, guid: 3235d27b52e53674f8dc6c0189d8a96e, type: 3}
     - {fileID: 21300000, guid: daa5a60ab59d8a046bca7098a06523c5, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.51666665
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -87,18 +69,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.25
-    functionName: DeactivateMenu
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.5
-    functionName: ReturnToIdle
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []
