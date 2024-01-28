@@ -6,11 +6,18 @@ public class CatMinigameManager : MonoBehaviour
 {
 
     public float gameTimer;
+    public static CatMinigameManager Instance;
 
     private int amountOfCatsInGame;
 
     [SerializeField] GameObject[] catPrefabs;
     GameObject catToBeSpawned;
+    private bool spawnCats = true;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {
@@ -27,11 +34,13 @@ public class CatMinigameManager : MonoBehaviour
 
     public void StopMinigame()
     {
+        spawnCats = false;
         StopCoroutine(SpawnCat());
     }
 
     GameObject SelectCatToBeSpawned()
     {
+
         int catSelected = Random.Range(0, 12);
         if (catSelected <= 8)
         {
@@ -53,14 +62,17 @@ public class CatMinigameManager : MonoBehaviour
 
     }
 
-    void CatSpawnPosition()
+    public void CatSpawnPosition()
     {
-        Vector2 spawnPointMax = GetComponent<SpriteRenderer>().bounds.max;
-        Vector2 spawnPointMin = GetComponent<SpriteRenderer>().bounds.min;
-        Vector2 randomSpawnPoint = new Vector2((Random.Range(spawnPointMax.x, spawnPointMin.x)/2), (Random.Range(spawnPointMax.y, spawnPointMin.y)/2));
+        if (spawnCats)
+        {
+            Vector2 spawnPointMax = GetComponent<SpriteRenderer>().bounds.max;
+            Vector2 spawnPointMin = GetComponent<SpriteRenderer>().bounds.min;
+            Vector2 randomSpawnPoint = new Vector2((Random.Range(spawnPointMax.x, spawnPointMin.x) / 2), (Random.Range(spawnPointMax.y, spawnPointMin.y) / 2));
 
-        Instantiate(SelectCatToBeSpawned(), transform.position, transform.rotation);
-        StartCoroutine(SpawnCat());
+            Instantiate(SelectCatToBeSpawned(), transform.position, transform.rotation);
+            StartCoroutine(SpawnCat());
+        }
     }
 
 

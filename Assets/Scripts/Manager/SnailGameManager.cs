@@ -24,7 +24,7 @@ public class SnailGameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseGame();
+            //PauseGame();
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -33,17 +33,17 @@ public class SnailGameManager : MonoBehaviour
 
     }
 
-    public void PauseGame()
-    {
-        if(GameManager.Instance.PauseGame()) 
-        { 
-            pauseMenu.SetActive(false);
-        }
-        else
-        {
-            pauseMenu.SetActive(true);
-        }
-    }
+    //public void PauseGame()
+    //{
+    //    if(GameManager.Instance.PauseGame()) 
+    //    { 
+    //        pauseMenu.SetActive(false);
+    //    }
+    //    else
+    //    {
+    //        pauseMenu.SetActive(true);
+    //    }
+    //}
 
     public void QuitGame()
     {

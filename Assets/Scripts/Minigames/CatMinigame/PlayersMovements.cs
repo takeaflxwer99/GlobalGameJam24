@@ -30,6 +30,10 @@ public class PlayersMovements : MonoBehaviour
 
     void Update()
     {
+
+        if (GameManager.Instance.gamePaused) 
+            return;
+
         float movimientoHorizontal = 0f;
         float movimientoVertical = 0f;
 

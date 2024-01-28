@@ -733,7 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebc1cfe3441dd8d41a72aae9856ecd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTimer: 0
+  gameTimer: 25
   catPrefabs:
   - {fileID: 420563912935619525, guid: 248af16018cfd8441bea81c0b0481073, type: 3}
   - {fileID: 420563912935619525, guid: d029fbd66e8a8dc49b99bb83c8f44d9d, type: 3}
@@ -1450,7 +1450,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1912372330}
   - {fileID: 1657465680}
   - {fileID: 1074417624}
   - {fileID: 805618446}
@@ -3425,6 +3424,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1912372330}
   - {fileID: 1461312922}
   - {fileID: 781690450}
   - {fileID: 729192965}
@@ -4260,16 +4260,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912372329}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.9491513}
   m_LocalScale: {x: 35.38, y: 35.38, z: 35.38}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 701640711}
+  m_Father: {fileID: 1657465680}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 144.90796, y: 32.250427}
+  m_AnchoredPosition: {x: 273.90796, y: 2.2504272}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1912372331
@@ -4514,6 +4514,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9006746561102377442, guid: 1188a9e648db73244a3e2487894f63f7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4550,7 +4554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instructions: {fileID: 1074417623}
   pauseMenu: {fileID: 1657465679}
-  victoryScreen: {fileID: 1074417623}
+  victoryScreen: {fileID: 805618445}
   winnerPlayerText: {fileID: 894980652}
 --- !u!4 &2122850796
 Transform:

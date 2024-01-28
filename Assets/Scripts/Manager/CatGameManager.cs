@@ -12,12 +12,18 @@ public class CatGameManager : MonoBehaviour
 
     private float gameTime = 25.0f;
     private bool timeEnded = false;
+    private bool canSpawnCats = true;
+
+    void Start()
+    {
+        StartCoroutine(SpawnCat());
+    }
+
     public void DisableInstructionsActivateCourtains()
     {
         victoryScreen.SetActive(false);
         instructions.SetActive(false);
         GameManager.Instance.OpenCurtainAnimations();
-
     }
 
     private void Update()
@@ -31,52 +37,63 @@ public class CatGameManager : MonoBehaviour
                 EndGame();
             }
         }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseGame();
+            //PauseGame();
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             DisableInstructionsActivateCourtains();
         }
-
     }
 
-    public void PauseGame()
+    private void EndGame()
     {
-        if (GameManager.Instance.PauseGame())
+        int player1Points = GameObject.FindWithTag("Player1").GetComponent<PlayersMovements>().catsInLight;
+        int player2Points = GameObject.FindWithTag("Player2").GetComponent<PlayersMovements>().catsInLight;
+
+        if (player1Points > player2Points)
         {
-            pauseMenu.SetActive(false);
+            GameManager.Instance.playerVicotries[0]++;
+            winnerPlayerText.text = "PLAYER 1 WON THE GAME!";
+        }
+        else if (player2Points > player1Points)
+        {
+            GameManager.Instance.playerVicotries[1]++;
+            winnerPlayerText.text = "PLAYER 2 WON THE GAME!";
         }
         else
         {
-            pauseMenu.SetActive(true);
+            winnerPlayerText.text = "IT'S A TIE!";
+        }
+
+        canSpawnCats = false;
+        GameManager.Instance.gamePaused = true;
+        victoryScreen.SetActive(true);
+
+        if (CatMinigameManager.Instance != null)
+        {
+            CatMinigameManager.Instance.StopMinigame();
         }
     }
 
-    public void QuitGame()
-    {
-        GameManager.Instance.QuitGame();
-    }
-
-    //private void OnTriggerEnter2D(Collider2D collision)
+    //public void PauseGame()
     //{
-    //    if (collision.tag == "Player1" && !playerCrossedTheLine)
+    //    if (GameManager.Instance.PauseGame())
     //    {
-    //        victoryScreen.SetActive(true);
-    //        playerCrossedTheLine = true;
-    //        GameManager.Instance.gamePaused = true;
-    //        GameManager.Instance.playerVicotries[0] = GameManager.Instance.playerVicotries[0] + 1;
-    //        winnerPlayerText.text = "PLAYER 1 WON THE RACE!!!";
+    //        pauseMenu.SetActive(false);
     //    }
-    //    else if (collision.tag == "Player2" && !playerCrossedTheLine)
+    //    else
     //    {
-    //        victoryScreen.SetActive(true);
-    //        playerCrossedTheLine = true;
-    //        GameManager.Instance.gamePaused = true;
-    //        GameManager.Instance.playerVicotries[1] = GameManager.Instance.playerVicotries[1] + 1;
-    //        winnerPlayerText.text = "PLAYER 2 WON THE RACE!!!";
+    //        pauseMenu.SetActive(true);
+    //    }
 
-    //    }
+    IEnumerator SpawnCat()
+    {
+        while (canSpawnCats)
+        {
+            yield return new WaitForSeconds(1.0f);
+        }
     }
 }
