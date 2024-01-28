@@ -63,10 +63,6 @@ public class CatGameManager : MonoBehaviour
             GameManager.Instance.playerVicotries[1]++;
             winnerPlayerText.text = "PLAYER 2 WON THE GAME!";
         }
-        else
-        {
-            winnerPlayerText.text = "IT'S A TIE!";
-        }
 
         canSpawnCats = false;
         GameManager.Instance.gamePaused = true;

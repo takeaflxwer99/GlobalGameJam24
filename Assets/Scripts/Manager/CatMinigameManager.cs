@@ -36,6 +36,8 @@ public class CatMinigameManager : MonoBehaviour
     {
         spawnCats = false;
         StopCoroutine(SpawnCat());
+        GameManager.Instance.CloseCurtainAnimations();
+        GameManager.Instance.ChangeScene();
     }
 
     GameObject SelectCatToBeSpawned()
