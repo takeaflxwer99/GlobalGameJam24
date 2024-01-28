@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -12,10 +11,6 @@ public class GameManager : MonoBehaviour
 
     public List<int> playerVicotries = new List<int>();
 
-    public enum AnimStates { idle, open, close};
-    AnimStates state;
-
-    //GameManager.Instance.gamePaused
     public bool gamePaused = false;
     public bool minigameFinished;
 
@@ -23,10 +18,9 @@ public class GameManager : MonoBehaviour
     public int amountOfMinigames;
 
     public GameObject gameMenu;
-    
+
     public UnityEvent minigameStarted;
     public UnityEvent activateMinigameEvent;
-    public UnityEvent minigameEnded;
 
     private int selectedMinigame;
     private int previousMinigameSelected = -1;
@@ -41,63 +35,29 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        state = AnimStates.idle;
     }
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-
-        }
+        //play opening curtain animation 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            switch (state)
-            {
-                case AnimStates.idle:
-                    SelectMinigame();
-                    GetComponent<Animator>().SetTrigger("OpenCurtain");
-                    break; 
-                case AnimStates.open:
-                    GetComponent<Animator>().SetTrigger("CloseCurtain");
-                    break; 
-                case AnimStates.close:
-                    MenuInteraction();
-                    GetComponent<Animator>().SetTrigger("ReturnToIdle");
-                    break;
-            }
-            StateChanger();
-        }
-    }
-
-    public void StateChanger()
-    {
-        switch(state)
-        {
-            case AnimStates.idle:
-                state = AnimStates.open;
-                break; 
-            case AnimStates.open:
-                state = AnimStates.close;
-                break;
-            case AnimStates.close:
-                state = AnimStates.idle;
-                break;
+            OpenCurtainAnimations();
         }
     }
 
     public void SelectMinigame()
     {
-        switch (1/*SelectRandomMinigame()*/) 
+            switch (1/*SelectRandomMinigame()*/)
         {
             case 0:
                 //Debug.Log(0);
                 SceneManager.LoadScene("MazeMinigame");
-                break; 
+                break;
             case 1:
                 //Debug.Log(1);
                 SceneManager.LoadScene("SnailMinigame");
-                break; 
+                break;
             case 2:
                 //Debug.Log(2);
                 SceneManager.LoadScene("CatMinigame");
@@ -116,11 +76,6 @@ public class GameManager : MonoBehaviour
         return selectedMinigame;
     }
 
-    public void MenuInteraction()
-    {
-
-    }
-
     public void ShowCredits()
     {
 
@@ -130,29 +85,30 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
-    
-    public void PauseGame()
+
+    public bool PauseGame()
     {
-        if (Time.timeScale == 1)
+        if (gamePaused)
         {
             gamePaused = true;
             Time.timeScale = 0;
         }
-        else if (Time.timeScale == 0)
+        else
         {
             gamePaused = false;
             Time.timeScale = 1;
         }
+        return gamePaused;
     }
 
     public void OpenCurtainAnimations()
     {
         GetComponent<Animator>().SetTrigger("OpenCurtain");
-    } 
+    }
 
     public void ActivateMenu()
     {
-        if(gameMenu != null)
+        if (gameMenu != null)
         {
             gameMenu.SetActive(true);
         }
@@ -174,10 +130,6 @@ public class GameManager : MonoBehaviour
     public void CloseCurtainAnimations()
     {
         GetComponent<Animator>().SetTrigger("CloseCurtain");
-        for (int i = 0; i < 2; i++)
-        {
-            Debug.Log(GameManager.Instance.playerVicotries[i]);
-        }
     }
 
     public IEnumerator ChangeScene()
