@@ -51,14 +51,16 @@ public class GrandmaChase : MonoBehaviour
                 GameObject.Find("grandma2").GetComponent<GrandmaChase>().chasePlayer = false;
                 victoryScreen.SetActive(true);
                 winnerPlayerText.text = "PLAYER 2 WON THE RACE!!!";
+
             }
             else if (collision.tag == "Player2")
             {
                 GameObject.Find("grandma").GetComponent<GrandmaChase>().chasePlayer = false;
                 victoryScreen.SetActive(true);
                 winnerPlayerText.text = "PLAYER 1 WON THE RACE!!!";
-
             }
+            GameManager.Instance.CloseCurtainAnimations();
+            GameManager.Instance.ChangeScene();
         }
     }
 }

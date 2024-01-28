@@ -4991,7 +4991,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
       propertyPath: delayInicial
-      value: 6.5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
       propertyPath: targetPlayer
@@ -6597,7 +6597,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
       propertyPath: delayInicial
-      value: 6.5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
       propertyPath: targetPlayer
