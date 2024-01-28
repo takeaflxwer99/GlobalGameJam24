@@ -50,15 +50,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SelectMinigame()
-    {
-        selectedMinigame = SelectRandomMinigame();
-    }
-
     public void ChangeScene()
     {
-        SelectMinigame();
-        SceneManager.LoadScene(minigameSceneNames[selectedMinigame]);
+        SceneManager.LoadScene(minigameSceneNames[SelectRandomMinigame()]);
     }
 
     int SelectRandomMinigame()

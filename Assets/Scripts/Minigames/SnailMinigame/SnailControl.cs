@@ -10,6 +10,8 @@ public enum OtroPlayerType
 public class SnailControl : MonoBehaviour
 {
     Animator animator;
+    public AudioClip explosionSound;
+
     public OtroPlayerType playerType;
     public float impulso = 5f;
     private bool isImpulseActivated = false;
@@ -80,6 +82,11 @@ public class SnailControl : MonoBehaviour
         previousAnimationState = animator.GetBool("Impulse");
     }
 
+    public void ExplosionSoundEffect()
+    {
+        GetComponent<AudioSource>().PlayOneShot(explosionSound, 1f);
+    }
+
     void SetAnimation(bool activate)
     {
         animator.SetBool("Impulse", activate);
@@ -101,6 +108,7 @@ public class SnailControl : MonoBehaviour
 
     public void OnExplosionAnimationEnd()
     {
+        GetComponent<AudioSource>().PlayOneShot(explosionSound, 0.5f);
         switch (playerType)
         {
             case OtroPlayerType.Caracol1:
