@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: GlobalGameJam24
+  companyName: CroquetasdeSetas
+  productName: WildCircus
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.56078434, g: 0.10980393, b: 0.23137257, a: 1}
