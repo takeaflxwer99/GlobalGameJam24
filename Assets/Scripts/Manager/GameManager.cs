@@ -41,25 +41,48 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-
-        //DontDestroyOnLoad(this.gameObject);
-
+        state = AnimStates.idle;
     }
 
     private void Update()
     {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             switch (state)
             {
                 case AnimStates.idle:
-                    OpenCurtainAnimations();
+                    SelectMinigame();
+                    GetComponent<Animator>().SetTrigger("OpenCurtain");
                     break; 
                 case AnimStates.open:
+                    GetComponent<Animator>().SetTrigger("CloseCurtain");
                     break; 
                 case AnimStates.close:
+                    MenuInteraction();
+                    GetComponent<Animator>().SetTrigger("ReturnToIdle");
                     break;
             }
+            StateChanger();
+        }
+    }
+
+    public void StateChanger()
+    {
+        switch(state)
+        {
+            case AnimStates.idle:
+                state = AnimStates.open;
+                break; 
+            case AnimStates.open:
+                state = AnimStates.close;
+                break;
+            case AnimStates.close:
+                state = AnimStates.idle;
+                break;
         }
     }
 
@@ -93,6 +116,11 @@ public class GameManager : MonoBehaviour
         return selectedMinigame;
     }
 
+    public void MenuInteraction()
+    {
+
+    }
+
     public void ShowCredits()
     {
 
@@ -103,19 +131,18 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
     
-    public bool PauseGame()
+    public void PauseGame()
     {
-        if (gamePaused)
+        if (Time.timeScale == 1)
         {
             gamePaused = true;
             Time.timeScale = 0;
         }
-        else
+        else if (Time.timeScale == 0)
         {
             gamePaused = false;
             Time.timeScale = 1;
         }
-        return gamePaused;
     }
 
     public void OpenCurtainAnimations()
