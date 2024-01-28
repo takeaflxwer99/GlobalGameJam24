@@ -19,6 +19,8 @@ public class SnailControl : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    [SerializeField] SnailGameManager snailGameManager;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -99,6 +101,26 @@ public class SnailControl : MonoBehaviour
 
     public void OnExplosionAnimationEnd()
     {
+        switch (playerType)
+        {
+            case OtroPlayerType.Caracol1:
+
+                snailGameManager.victoryScreen.SetActive(true);
+                snailGameManager.playerCrossedTheLine = true;
+                GameManager.Instance.gamePaused = true;
+                GameManager.Instance.playerVicotries[1] = GameManager.Instance.playerVicotries[1] + 1;
+                snailGameManager.winnerPlayerText.text = "PLAYER 2 WON THE RACE!!!";
+                break;
+            case OtroPlayerType.Caracol2:
+                snailGameManager.victoryScreen.SetActive(true);
+                snailGameManager.playerCrossedTheLine = true;
+                GameManager.Instance.gamePaused = true;
+                GameManager.Instance.playerVicotries[0] = GameManager.Instance.playerVicotries[0] + 1;
+                snailGameManager.winnerPlayerText.text = "PLAYER 1 WON THE RACE!!!";
+                HandleInput(KeyCode.RightArrow, true);
+                break;
+        }
+        GameManager.Instance.CloseCurtainAnimations();
         Destroy(gameObject);
     }
 }

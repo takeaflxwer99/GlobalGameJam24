@@ -10,7 +10,8 @@ public class SnailGameManager : MonoBehaviour
     public GameObject victoryScreen;
     public TextMeshProUGUI winnerPlayerText;
 
-    private bool playerCrossedTheLine = false;
+    public bool playerCrossedTheLine = false;
+
     public void DisableInstructionsActivateCourtains()
     {
         victoryScreen.SetActive(false);
@@ -68,5 +69,6 @@ public class SnailGameManager : MonoBehaviour
             winnerPlayerText.text = "PLAYER 2 WON THE RACE!!!";
 
         }
+        GameManager.Instance.CloseCurtainAnimations();
     }
 }

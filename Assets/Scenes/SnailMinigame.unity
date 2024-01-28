@@ -1719,6 +1719,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 2099380363}
   victoryScreen: {fileID: 1126058177}
   winnerPlayerText: {fileID: 661107519}
+  playerCrossedTheLine: 0
 --- !u!4 &967428841
 Transform:
   m_ObjectHideFlags: 0
@@ -3127,6 +3128,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1630187988939154924, guid: f861b6141a934c84a905591b77b750c0, type: 3}
+      propertyPath: snailGameManager
+      value: 
+      objectReference: {fileID: 967428840}
     - target: {fileID: 2372910922778754739, guid: f861b6141a934c84a905591b77b750c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.09
@@ -3188,6 +3193,10 @@ PrefabInstance:
       propertyPath: impulso
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2213325407445458717, guid: de52d69980d440246b4b2eba654269ec, type: 3}
+      propertyPath: snailGameManager
+      value: 
+      objectReference: {fileID: 967428840}
     - target: {fileID: 2213325407445458717, guid: de52d69980d440246b4b2eba654269ec, type: 3}
       propertyPath: velocidadConstante
       value: 0.5

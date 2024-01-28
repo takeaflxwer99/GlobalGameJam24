@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public List<int> playerVicotries = new List<int>();
+
+    public enum AnimStates { idle, open, close};
+    AnimStates state;
 
     //GameManager.Instance.gamePaused
     public bool gamePaused = false;
@@ -22,6 +26,7 @@ public class GameManager : MonoBehaviour
     
     public UnityEvent minigameStarted;
     public UnityEvent activateMinigameEvent;
+    public UnityEvent minigameEnded;
 
     private int selectedMinigame;
     private int previousMinigameSelected = -1;
@@ -45,7 +50,16 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            OpenCurtainAnimations();
+            switch (state)
+            {
+                case AnimStates.idle:
+                    OpenCurtainAnimations();
+                    break; 
+                case AnimStates.open:
+                    break; 
+                case AnimStates.close:
+                    break;
+            }
         }
     }
 
@@ -133,6 +147,10 @@ public class GameManager : MonoBehaviour
     public void CloseCurtainAnimations()
     {
         GetComponent<Animator>().SetTrigger("CloseCurtain");
+        for (int i = 0; i < 2; i++)
+        {
+            Debug.Log(GameManager.Instance.playerVicotries[i]);
+        }
     }
 
     public IEnumerator ChangeScene()
