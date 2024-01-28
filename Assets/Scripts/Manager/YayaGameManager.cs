@@ -10,15 +10,6 @@ public class YayaGameManager : MonoBehaviour
     public GameObject victoryScreen;
     public TextMeshProUGUI winnerPlayerText;
 
-    private bool playerCrossedTheLine = false;
-    public void DisableInstructionsActivateCourtains()
-    {
-        victoryScreen.SetActive(false);
-        instructions.SetActive(false);
-        GameManager.Instance.OpenCurtainAnimations();
-
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -27,7 +18,7 @@ public class YayaGameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            DisableInstructionsActivateCourtains();
+            //DisableInstructionsActivateCourtains();
         }
 
     }
@@ -47,26 +38,5 @@ public class YayaGameManager : MonoBehaviour
     public void QuitGame()
     {
         GameManager.Instance.QuitGame();
-    }
-
-    private void OnTriggerEnter2D (Collider2D collision)
-    {
-        if (collision.tag == "Player1" && !playerCrossedTheLine)
-        {
-            victoryScreen.SetActive(true);
-            playerCrossedTheLine = true;
-            GameManager.Instance.gamePaused = true;
-            GameManager.Instance.playerVicotries[0] = GameManager.Instance.playerVicotries[0] + 1;
-            winnerPlayerText.text = "PLAYER 1 WON THE RACE!!!";
-        }
-        else if (collision.tag == "Player2" && !playerCrossedTheLine)
-        {
-            victoryScreen.SetActive(true);
-            playerCrossedTheLine = true;
-            GameManager.Instance.gamePaused = true;
-            GameManager.Instance.playerVicotries[1] = GameManager.Instance.playerVicotries[1] + 1;
-            winnerPlayerText.text = "PLAYER 2 WON THE RACE!!!";
-
-        }
     }
 }

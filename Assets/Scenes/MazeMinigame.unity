@@ -355,7 +355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &209034366
 Transform:
   m_ObjectHideFlags: 0
@@ -1256,17 +1256,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451850238}
   m_CullTransparentMesh: 1
---- !u!114 &499724798 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
-  m_PrefabInstance: {fileID: 2763396931086204134}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414423210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39bafa1a3b40ed946a88bf8a3fa7ec77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &534057502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2787,7 +2776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9006746561102377442, guid: 1188a9e648db73244a3e2487894f63f7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2969,7 +2958,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 2
   playerType: 1
-  grandmaChase: {fileID: 1486813260}
 --- !u!95 &640033517
 Animator:
   serializedVersion: 5
@@ -4611,17 +4599,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2500104684001460158, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
   m_PrefabInstance: {fileID: 1661888523}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1486813260 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
-  m_PrefabInstance: {fileID: 1661888523}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483872113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39bafa1a3b40ed946a88bf8a3fa7ec77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1486813264
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5021,12 +4998,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 640033513}
     - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
+      propertyPath: victoryScreen
+      value: 
+      objectReference: {fileID: 2146412177}
+    - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
       propertyPath: velocidadAbuela
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
+      propertyPath: winnerPlayerText
+      value: 
+      objectReference: {fileID: 1261160990}
+    - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
+      propertyPath: Players.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
+      propertyPath: Players.Array.data[0]
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
+      propertyPath: Players.Array.data[1]
+      value: Player2
+      objectReference: {fileID: 0}
     - target: {fileID: 2500104684001460158, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
       propertyPath: m_Name
-      value: grandma (1)
+      value: grandma2
       objectReference: {fileID: 0}
     - target: {fileID: 2500104684001460158, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
       propertyPath: m_Layer
@@ -6042,7 +6039,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 2
   playerType: 0
-  grandmaChase: {fileID: 499724798}
 --- !u!1 &2022095954
 GameObject:
   m_ObjectHideFlags: 0
@@ -6608,8 +6604,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2000938282}
     - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
+      propertyPath: victoryScreen
+      value: 
+      objectReference: {fileID: 2146412177}
+    - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
       propertyPath: velocidadAbuela
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
+      propertyPath: winnerPlayerText
+      value: 
+      objectReference: {fileID: 1261160990}
+    - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
+      propertyPath: Players.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
+      propertyPath: Players.Array.data[0]
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120913614704648903, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
+      propertyPath: Players.Array.data[1]
+      value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 2500104684001460158, guid: dc6225088045e784ebdd3fca51f58b02, type: 3}
       propertyPath: m_Name

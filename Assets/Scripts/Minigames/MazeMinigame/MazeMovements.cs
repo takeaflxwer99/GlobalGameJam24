@@ -13,7 +13,6 @@ public class MazeMovements : MonoBehaviour
     Animator animator;
     public float velocidad = 5f;
     public PlayerType2 playerType;
-    public GrandmaChase grandmaChase;
 
     void Start()
     {
@@ -41,8 +40,5 @@ public class MazeMovements : MonoBehaviour
 
         bool isMoving = movimiento != Vector3.zero;
         animator.SetBool("IsMoving", isMoving);
-
-       
-        grandmaChase.targetPlayer = transform;
     }
 }
