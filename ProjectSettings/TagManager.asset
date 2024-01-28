@@ -20,7 +20,7 @@ TagManager:
   - Cats
   - Cam1
   - Cam2
-  - 
+  - Player2
   - 
   - 
   - 
@@ -73,4 +73,7 @@ TagManager:
     locked: 0
   - name: Caracol rojo
     uniqueID: 2354712615
+    locked: 0
+  - name: "M\xE1s delante decorations"
+    uniqueID: 4068741433
     locked: 0

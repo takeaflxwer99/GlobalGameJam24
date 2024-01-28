@@ -7,10 +7,18 @@ public enum PlayerType2
     Player1,
     Player2
 }
+
 public class MazeMovements : MonoBehaviour
 {
+    Animator animator;
     public float velocidad = 5f;
     public PlayerType2 playerType;
+    public GrandmaChase grandmaChase;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -30,5 +38,11 @@ public class MazeMovements : MonoBehaviour
 
         Vector3 movimiento = new Vector3(movimientoHorizontal, movimientoVertical, 0f);
         transform.position += movimiento * velocidad * Time.deltaTime;
+
+        bool isMoving = movimiento != Vector3.zero;
+        animator.SetBool("IsMoving", isMoving);
+
+       
+        grandmaChase.targetPlayer = transform;
     }
 }
