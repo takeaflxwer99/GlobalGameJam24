@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09ed48819ec8ee4db645e23c9c08b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 250897554}
 --- !u!1 &52855103
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,7 +784,7 @@ GameObject:
   - component: {fileID: 250897553}
   - component: {fileID: 250897552}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: PressSpace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
